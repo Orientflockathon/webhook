@@ -65,7 +65,7 @@ def listenEvent(request):
 		reciever_id = data["message"]["to"]
 		print reciever_id
 
-		if data["message"]["text"]  == "hi:
+		if data["message"]["text"]  == "hi":
 			print 'hellooooooo1234'
 			# print data['token']
 			
