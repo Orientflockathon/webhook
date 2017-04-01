@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Users(models.Model):
-    # idn = models.CharField(max_length = 250)
+    user_token = models.CharField(max_length = 250)
     user_id = models.CharField(max_length = 250)
 
     def __unicode__(self):

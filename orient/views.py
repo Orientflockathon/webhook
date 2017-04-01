@@ -28,9 +28,12 @@ def listenEvent(request):
 
 		if data['name'] == 'client.slashCommand' :
 		
-			sendMessage(data['chat'])
+			sendMessage(data['chat'] , data['userId'])
 
 		elif data["name"] == "app.install" :
+			v = Users.objects.get_or_create(user_token = data["userToken"])
+			v.user_id = data['userId']
+			v.save()
 			print 'hellooooooo'
 			return HttpResponse('ok')
 		
@@ -42,13 +45,14 @@ def listenEvent(request):
 		print ecommand
 	return HttpResponse(response)
 
-def sendMessage(g_id ):
+def sendMessage(g_id , u_id ):
+	v = Users.objects.get(userId = u_id)
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
 	payload={
 	"to":g_id,
 	"text":"Shivam is out of Bitcap \n thanks and regards",
-	"token":"67c8351f-32c7-487b-b6c3-de725daea30c",
+	"token":v.user_token,
 	# "sendAs":json.dumps(d)
 	}
 	headers={
