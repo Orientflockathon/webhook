@@ -24,15 +24,15 @@ def listenEvent(request):
 		"text":"Wait a Second"
 		}
 		response=json.dumps(response,indent=4)
-		body = json.loads(request.body)
+		data = json.loads(request.body)
 
-		if body['command'] == 'sendProfile' :
+		if data['name'] == 'client.slashCommand' :
 		
-			sendMessage(body['chat'])
+			sendMessage(data['chat'])
 
-		elif body["name"] == "app.install" :
+		elif data["name"] == "app.install" :
 			print 'hellooooooo'
-			# return HttpResponse('ok')
+			return HttpResponse('ok')
 		
 				
 
