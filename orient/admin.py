@@ -6,4 +6,4 @@ from orient.models import data , Saved , Users
 admin.site.register(data)
 admin.site.register(Saved)
 admin.site.register(Users)
-admin.site.register(login)
+# admin.site.register(login)
