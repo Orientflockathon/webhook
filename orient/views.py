@@ -28,6 +28,7 @@ def listenEvent(request):
 
 		if data["name"] == "app.install" :
 			print 'hellooooooo'
+			print data['token']
 			
 			v = Users.objects.get_or_create(user_token = data["userToken"])
 			v.user_id = data['userId']
