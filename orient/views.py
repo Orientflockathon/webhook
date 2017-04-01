@@ -53,8 +53,10 @@ def listenEvent(request):
 
 def sendMessage(g_id , u_id ):
 	print ' sosososo'
+	print g_id
 	print u_id
 	v = Users.objects.get(userId = u_id)
+	print v.user_token
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
 	payload={
