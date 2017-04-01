@@ -66,16 +66,16 @@ def listenEvent(request):
 		print reciever_id
 		
 
-			print 'hellooooooo1234'
-			# print data['token']
+			# print 'hellooooooo1234'
+			# # print data['token']
 			
-			# v = Users.objects.get_or_create(user_token = data["token"])[0]
-			# v.user_id = data['userId']
-			# v.save()
-			print 'hellooooooo'
-			sendMessage2(sender_id , "hi how are you , how can i help you" )
+			# # v = Users.objects.get_or_create(user_token = data["token"])[0]
+			# # v.user_id = data['userId']
+			# # v.save()
+			# print 'hellooooooo'
+			# sendMessage2(sender_id , "hi how are you , how can i help you" )
 
-		elif data2["message"]["text"].lower()  == "#developer":
+		if data2["message"]["text"].lower()  == "#developer":
 			print 'hellooooooo12345'
 			# print data['token']
 			v = data.objects.all().filter(tags = 'Developer')
@@ -99,7 +99,7 @@ def listenEvent(request):
 			p = v.data_set.get_or_create()[0]
 			
 			
-			# print incomingMessage
+			print incomingMessage
 			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
 			p.state =1 
 			p.save()
