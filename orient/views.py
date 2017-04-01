@@ -99,7 +99,7 @@ def listenEvent(request):
 			p = v.data_set.get_or_create()[0]
 			
 			
-			print incomingMessage
+			# print incomingMessage
 			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
 			p.state =1 
 			p.save()
