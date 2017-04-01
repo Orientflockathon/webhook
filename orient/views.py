@@ -41,7 +41,7 @@ def sendMessage(g_id ):
 	"to":g_id,
 	"text":"Shivam is out of Bitcap \n thanks and regards",
 	"token":"67c8351f-32c7-487b-b6c3-de725daea30c",
-	"sendAs":json.dumps(d)
+	# "sendAs":json.dumps(d)
 	}
 	headers={
 	"Content-Type":"application/x-www-form-urlencoded",
