@@ -100,7 +100,7 @@ def listenEvent(request):
 			p = v.data_set.get_or_create()
 			
 			
-			sendMessage2(sender_id , "Do you want to link it with Linkedin reply y or n" )
+			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
 			p.state =1 
 			p.save()
 			if p.state == 1:
