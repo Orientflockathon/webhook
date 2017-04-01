@@ -123,7 +123,7 @@ def sendMessage(g_id , u_id ):
 	print idn
 	url="http://api.flock.co/v1/chat.sendMessage"
 	
-	widgetdict={ "src": "https://orient-flock.herokuapp.com/card/" + idn, "width": 400, "height": 400 } 
+	widgetdict={ "src": "https://orient-flock.herokuapp.com/frame/" + idn, "width": 400, "height": 400 } 
 	viewdict={"widget":widgetdict}
 	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
 	print (attachmentarrdict)
