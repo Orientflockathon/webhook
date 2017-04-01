@@ -105,7 +105,7 @@ def sendMessage(g_id , u_id ):
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
 	payload={
-	"to":u_id,
+	"to":g_id,
 	"text":"Shivam is out of Bitcap \n thanks and regards",
 	"token":v.user_token,
 	# "sendAs":json.dumps(d)
@@ -129,14 +129,15 @@ def sendMessage2(u_id , message_text ):
 	# print g_id
 	print u_id
 	v = Users.objects.get(user_id = u_id)
-	print v 
-	print v.user_token
+	# print v 
+	# print 
 	url="http://api.flock.co/v1/chat.sendMessage"
 	
 	payload={
 	"to":u_id,
 	"text":message_text,
-	"token":v.user_token,
+	"token": 'ba0af222-e3b0-4686-b2d7-ea9fa7839cc9'
+,
 	"sendAs":json.dumps(d)
 	}
 	headers={
