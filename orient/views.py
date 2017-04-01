@@ -75,7 +75,7 @@ def listenEvent(request):
 			print 'hellooooooo'
 			sendMessage2(sender_id , "hi how are you , how can i help you" )
 
-		if data2["message"]["text"].lower()  == "#developer":
+		elif data2["message"]["text"].lower()  == "#developer":
 			print 'hellooooooo12345'
 			# print data['token']
 			v = data.objects.all().filter(tags = 'Developer')
@@ -90,6 +90,23 @@ def listenEvent(request):
 			# v.save()
 			print 'hellooooooo'
 			sendMessage2(sender_id , "here all all the developers for you " )
+
+
+		elif data2["message"]["text"].lower()  == "#developer":
+			print 'hellooooooo12345'
+			# print data['token']
+			v = data.objects.all().filter(tags = 'Developer')
+			print v
+			for i in v:
+				print "here are devs"
+				print i.first_name
+				sendMessage2(sender_id , i.first_name)
+			
+			# v = Users.objects.get_or_create(user_token = data["token"])[0]
+			# v.user_id = data['userId']
+			# v.save()
+			print 'hellooooooo'
+			sendMessage2(sender_id , "here all all the developers for you " )	
 	
 			# return HttpResponse('ok')
 
