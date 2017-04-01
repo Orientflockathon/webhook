@@ -152,7 +152,25 @@ def listenEvent(request):
 
 		elif data2["message"]["text"].lower() in "hey,hi,supp".split(','):
 			##give user the details to use slash commands
-			return 'enter /setup to register without linkedIn /n enter /'
+			# return 'enter /setup to register without linkedIn /n enter /'
+
+		elif data2["message"]["text"].lower()  == "#shoutout" :
+			p.state = 8
+			p.save()
+
+			sendMessage2(sender_id ,'Enter profle and your shoutout in this format developers:your message')
+
+		elif p.state == 8:
+			a = data2["message"]["text"]
+			array = a.split(':')
+			print array[0]
+			print array[1]
+			v = data.objects.all().filter(tags = array[0])
+			for i in v :
+				 print i.user_id
+
+			
+
 
 		else:
 			return 'say Hey , hi , sup to start'
@@ -349,6 +367,3 @@ def frame(requests , id):
 	context_dict['url'] = 'https://orient-flock.herokuapp.com/card/' + id
 	
 	return render(requests,'orient/frame.html',context_dict)
-
-
-
