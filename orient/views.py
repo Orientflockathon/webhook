@@ -59,13 +59,13 @@ def listenEvent(request):
 		"text":"Wait a Second"
 		}
 		response=json.dumps(response,indent=4)
-		data = json.loads(request.body)
+		data2 = json.loads(request.body)
 		sender_id = data["message"]["from"]
 		print sender_id
 		reciever_id = data["message"]["to"]
 		print reciever_id
 
-		if data["message"]["text"]  == "hi":
+		if data2["message"]["text"]  == "hi":
 			print 'hellooooooo1234'
 			# print data['token']
 			
@@ -75,7 +75,7 @@ def listenEvent(request):
 			print 'hellooooooo'
 			sendMessage2(sender_id , "hi how are you , how can i help you" )
 
-		if data["message"]["text"].lower()  == "#developer":
+		if data2["message"]["text"].lower()  == "#developer":
 			print 'hellooooooo12345'
 			# print data['token']
 			v = data.objects.all().filter(tags = 'Developer')
