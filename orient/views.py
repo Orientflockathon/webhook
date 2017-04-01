@@ -252,6 +252,9 @@ def index(request):
 
 	responseobj = json.dumps(q, indent = 4)
 
+	return HttpResponse(responseobj,content_type = "application/json")
+
+
 def card(requests , id):
 	# print id.split(:)[1] 
 	q = Users.objects.get(user_id = "u:" + id)
@@ -270,8 +273,11 @@ def card(requests , id):
 	return render(requests,'orient/card.html',context_dict)
 
 
+def card(requests , id):
+
+	context_dict['url'] = 'https://orient-flock.herokuapp.com/card/' + id
+	
+	return render(requests,'orient/frame.html',context_dict)
 
 
 
-
-	return HttpResponse(responseobj,content_type = "application/json")
