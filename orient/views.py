@@ -24,22 +24,22 @@ def listenEvent(request):
 		"text":"Wait a Second"
 		}
 		response=json.dumps(response,indent=4)
-		data = json.loads(request.body)
+		data2 = json.loads(request.body)
 
-		if data["name"] == "app.install" :
+		if data2["name"] == "app.install" :
 			print 'hellooooooo'
-			print data['token']
+			print data2['token']
 			
-			v = Users.objects.get_or_create(user_token = data["token"])[0]
-			v.user_id = data['userId']
+			v = Users.objects.get_or_create(user_token = data2["token"])[0]
+			v.user_id = data2['userId']
 			v.save()
 			print 'hellooooooo'
 			return HttpResponse('ok')
 
-		elif data['name'] == 'client.slashCommand' :
+		elif data2['name'] == 'client.slashCommand' :
 			print ' suppppppp'
 		
-			sendMessage(data['chat'] , data['userId'])
+			sendMessage(data2['chat'] , data2['userId'])
 
 
 
