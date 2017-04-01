@@ -30,7 +30,7 @@ def listenEvent(request):
 			print 'hellooooooo'
 			print data['token']
 			
-			v = Users.objects.get_or_create(user_token = data["token"])
+			v = Users.objects.get_or_create(user_token = data["token"])[0]
 			v.user_id = data['userId']
 			v.save()
 			print 'hellooooooo'
