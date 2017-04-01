@@ -97,7 +97,7 @@ def listenEvent(request):
 			print 'hellooooooo12345'
 			# print data['token']
 			v =Users.objects.get_or_create(user_id = sender_id)[0]
-			p = v.data_set.get_or_create()
+			p = v.data_set.get_or_create()[0]
 			
 			
 			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
