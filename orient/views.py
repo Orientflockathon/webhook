@@ -52,6 +52,8 @@ def listenEvent(request):
 	return HttpResponse(response)
 
 def sendMessage(g_id , u_id ):
+	print ' sosososo'
+	print u_id
 	v = Users.objects.get(userId = u_id)
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
