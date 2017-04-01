@@ -24,7 +24,7 @@ def listenEvent(request):
 		"text":"Wait a Second"
 		}
 		response=json.dumps(response,indent=4)
-		body = json.loads(request.body , indent=4)
+		body = json.loads(request.body)
 		
 		sendMessage(body['chat'])
 
