@@ -24,22 +24,22 @@ def listenEvent(request):
 		"text":"Wait a Second"
 		}
 		response=json.dumps(response,indent=4)
-		data = json.loads(request.body)
+		data2 = json.loads(request.body)
 
-		if data["name"] == "app.install" :
+		if data2["name"] == "app.install" :
 			print 'hellooooooo'
-			print data['token']
+			print data2['token']
 			
-			v = Users.objects.get_or_create(user_token = data["token"])[0]
-			v.user_id = data['userId']
+			v = Users.objects.get_or_create(user_token = data2["token"])[0]
+			v.user_id = data2['userId']
 			v.save()
 			print 'hellooooooo'
 			return HttpResponse('ok')
 
-		elif data['name'] == 'client.slashCommand' :
+		elif data2['name'] == 'client.slashCommand' :
 			print ' suppppppp'
 		
-			sendMessage(data['chat'] , data['userId'])
+			sendMessage(data2['chat'] , data2['userId'])
 
 
 
@@ -59,9 +59,13 @@ def listenEvent(request):
 		"text":"Wait a Second"
 		}
 		response=json.dumps(response,indent=4)
-		data = json.loads(request.body)
+		data2 = json.loads(request.body)
+		sender_id = data2["message"]["from"]
+		print sender_id
+		reciever_id = data2["message"]["to"]
+		print reciever_id
 
-		if data["message"]["text"] == "hi" :
+		if data2["message"]["text"]  == "hi":
 			print 'hellooooooo1234'
 			# print data['token']
 			
@@ -69,6 +73,24 @@ def listenEvent(request):
 			# v.user_id = data['userId']
 			# v.save()
 			print 'hellooooooo'
+			sendMessage2(sender_id , "hi how are you , how can i help you" )
+
+		if data2["message"]["text"].lower()  == "#developer":
+			print 'hellooooooo12345'
+			# print data['token']
+			v = data.objects.all().filter(tags = 'Developer')
+			print v
+			for i in v:
+				print "here are devs"
+				print i.first_name
+				sendMessage2(sender_id , i.first_name)
+			
+			# v = Users.objects.get_or_create(user_token = data["token"])[0]
+			# v.user_id = data['userId']
+			# v.save()
+			print 'hellooooooo'
+			sendMessage2(sender_id , "here all all the developers for you " )
+	
 			# return HttpResponse('ok')
 
 		# elif data['name'] == 'client.slashCommand' :
@@ -85,7 +107,7 @@ def listenEvent(request):
 
 	
 	except Exception as e:
-		print ecommand	
+		print e	
 	return HttpResponse(response)
 
 
@@ -113,6 +135,35 @@ def sendMessage(g_id , u_id ):
 	print r
 	print r.text
 
+def sendMessage2(u_id , message_text ):
+	d={
+				"name":"Orient",
+				"profileImage":"http://i.imgur.com/pAKIUxV.jpg"
+
+				}
+
+	print ' sosososo'
+	# print g_id
+	print u_id
+	v = Users.objects.get(user_id = u_id)
+	# print v 
+	# print 
+	url="http://api.flock.co/v1/chat.sendMessage"
+	
+	payload={
+	"to":u_id,
+	"text":message_text,
+	"token": 'ba0af222-e3b0-4686-b2d7-ea9fa7839cc9'
+,
+	"sendAs":json.dumps(d)
+	}
+	headers={
+	"Content-Type":"application/x-www-form-urlencoded",
+	"Content-Length":"70"
+	}
+	r=requests.post(url,data=payload,headers=headers)
+	print r
+	print r.text
 
 def index(request):
 	# payload1 = {'response_type': 'code', 'state': '123456789', 'redirect_uri': 'https://fathomless-depths-13330.herokuapp.com/', 'client_id': '86xgcoikz5tvem' }
