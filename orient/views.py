@@ -25,13 +25,15 @@ def listenEvent(request):
 		}
 		response=json.dumps(response,indent=4)
 		body = json.loads(request.body)
+
+		if body['command'] == 'sendProfile' :
 		
-		sendMessage(body['chat'])
+			sendMessage(body['chat'])
 
 
 	
 	except Exception as e:
-		print e
+		print ecommand
 	return HttpResponse(response)
 
 def sendMessage(g_id ):
