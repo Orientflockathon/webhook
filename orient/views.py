@@ -24,7 +24,7 @@ def listenEvent(request):
 		"text":"Wait a Second"
 		}
 		response=json.dumps(response,indent=4)
-		body = json.dumps(request.body , indent=4)
+		body = json.loads(request.body , indent=4)
 		
 		sendMessage(body['chat'])
 
@@ -34,7 +34,7 @@ def listenEvent(request):
 		print e
 	return HttpResponse(response)
 
-def sendMessage(g_id  ):
+def sendMessage(g_id ):
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
 	payload={
