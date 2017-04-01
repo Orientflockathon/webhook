@@ -238,7 +238,7 @@ def index(request):
 def card(requests):
 	q = Users.objects.get(user_id = 'u:mgmjkx1mjww22dx1')
 
-	p = q.data_set.get()
+	p = q.data_set.get_or_create()[0]
 	context_dict = {}
 	context_dict['first_name'] = first_name
 	context_dict['last_namelast_name'] = last_name
