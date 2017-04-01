@@ -150,7 +150,7 @@ def listenEvent(request):
 			p.save()
 			sendMessage2(sender_id ,'thanks your profile is all set.')
 
-		elif data2["message"]["text"].lower() in "hey,hi,supp".split(','):
+		# elif data2["message"]["text"].lower() in "hey,hi,supp".split(','):
 			##give user the details to use slash commands
 			# return 'enter /setup to register without linkedIn /n enter /'
 
