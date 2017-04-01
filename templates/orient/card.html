@@ -4,8 +4,8 @@
 
 {% load staticfiles %}
   <title>card</title>
-   <link rel="stylesheet" href="{% static 'https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css' %}">
-  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+  <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
   <style type="text/css">
    .virtualRepeatdemoHorizontalUsage #horizontal-container {
      height: 570px;
@@ -40,7 +40,6 @@
 </head>
 <body>
 <center>
-<iframe>
   <div ng-controller="AppCtrl as ctrl" ng-cloak="" class="virtualRepeatdemoHorizontalUsage" ng-app="MyApp">
     <md-content layout="column">
       <md-virtual-repeat-container id="horizontal-container" md-orient-horizontal="">
@@ -87,15 +86,8 @@
       </md-virtual-repeat-container>
     </md-content>
   </div>
-</iframe>
 </center>
 
 </body>
-<script>
-  angular.module('MyApp', ['ngMaterial'])
 
-.controller('AppCtrl', function($scope) {
-  $scope.imagePath = '';
-});
-</script>
 </html>

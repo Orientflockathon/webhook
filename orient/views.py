@@ -245,6 +245,23 @@ def index(request):
 
 	responseobj = json.dumps(q, indent = 4)
 
+<<<<<<< HEAD
+=======
+def card(requests):
+	q = Users.objects.get(user_id = 'u:mgmjkx1mjww22dx1')
+
+	p = q.data_set.get_or_create()[0]
+	context_dict = {}
+	context_dict['first_name'] = p.first_name
+	context_dict['last_namelast_name'] = p.last_name
+	context_dict['headline'] = p.headline
+	context_dict['location'] = p.location 
+	context_dict['summary'] = p.summary
+	context_dict['picture_url'] = p.picture_url
+	context_dict['email_address'] = p.email_address
+	context_dict['public_profile_url'] = p.public_profile_url
+	return render(requests,'orient/card.html',context_dict)
+>>>>>>> 53271910a14913c414d3d08949968c4981a40bc2
 
 
 
