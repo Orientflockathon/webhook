@@ -5,7 +5,7 @@ from django.http import HttpResponse
 def check(request):
 	return HttpResponse("Hey,This worked")
 ####### Listening for flock events here #############
-
+@csrf_exempt
 def listenEvent(request):
 	print "received an event"
 	print "The request body is ",request.body
