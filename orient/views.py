@@ -248,7 +248,7 @@ def card(requests):
 	context_dict['picture_url'] = p.picture_url
 	context_dict['email_address'] = p.email_address
 	context_dict['public_profile_url'] = p.public_profile_url
-	return render(request,'orient/card.html',context_dict)
+	return render(requests,'orient/card.html',context_dict)
 
 
 
