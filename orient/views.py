@@ -240,14 +240,14 @@ def card(requests):
 
 	p = q.data_set.get_or_create()[0]
 	context_dict = {}
-	context_dict['first_name'] = first_name
-	context_dict['last_namelast_name'] = last_name
-	context_dict['headline'] = headline
-	context_dict['location'] = location 
-	context_dict['summary'] = summary
-	context_dict['picture_url'] = picture_url
-	context_dict['email_address'] = email_address
-	context_dict['public_profile_url'] = public_profile_url
+	context_dict['first_name'] = p.first_name
+	context_dict['last_namelast_name'] = p.last_name
+	context_dict['headline'] = p.headline
+	context_dict['location'] = p.location 
+	context_dict['summary'] = p.summary
+	context_dict['picture_url'] = p.picture_url
+	context_dict['email_address'] = p.email_address
+	context_dict['public_profile_url'] = p.public_profile_url
 	return render(request,'orient/card.html',context_dict)
 
 
