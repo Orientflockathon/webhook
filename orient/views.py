@@ -143,7 +143,7 @@ def listenEvent(request):
 			sendMessage2(sender_id ,'Profile picture that you want to add')
 
 		elif p.state == 7:
-			p.picture_url = data2["message"]["views"]["image"]["thumbnail"]["src"]
+			p.picture_url = data2["message"]["attachments"]["views"]["image"]["thumbnail"]["src"]
 
 			p.state  = 0
 			##handle saving image
