@@ -96,9 +96,9 @@ def listenEvent(request):
 		elif data2["message"]["text"].lower()  == "#setup":
 			print 'hellooooooo12345'
 			# print data['token']
-			v =Users.objects.get_or_create(user_id = sender_id)
+			v =Users.objects.get_or_create(user_id = sender_id)[0]
 			p = v.data_set.get_or_create()
-			print v
+			
 			
 			sendMessage2(sender_id , "Do you want to link it with Linkedin reply y or n" )
 			p.state =1 
@@ -139,7 +139,7 @@ def listenEvent(request):
 				return 'Profile picture that you want to add'
 
 			elif p.state == 7:
-				
+
 				p.state  = 0
 				##handle saving image
 				p.save()
