@@ -10,5 +10,5 @@ urlpatterns = patterns('',
     url(r'^check$', 'orient.views.check', name='check'),
     url(r'^listenEvent$', 'orient.views.listenEvent', name='listenEvent'),
     url(r'^linkedin/$', 'orient.views.index', name='home'),
-    url(r'^card/(?P<foo>\w+)' ,'orient.views.card' , name = 'card'),
+    url(r'^card/(?P<id>\w+)' ,'orient.views.card' , name = 'card'),
 )
