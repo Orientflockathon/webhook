@@ -238,14 +238,14 @@ def index(request):
 def card(requests,id):
 	p = data.objects.get_or_create(user_id = id)[0]
 	context_dict = {}
-    context_dict['first_name'] = first_name
-    context_dict['last_namelast_name'] = last_name
-    context_dict['headline'] = headline
-    context_dict['location'] = location 
-    context_dict['summary'] = summary
-    context_dict['picture_url'] = picture_url
-    context_dict['email_address'] = email_address
-    context_dict['public_profile_url'] = public_profile_url
+	context_dict['first_name'] = first_name
+	context_dict['last_namelast_name'] = last_name
+	context_dict['headline'] = headline
+	context_dict['location'] = location 
+	context_dict['summary'] = summary
+	context_dict['picture_url'] = picture_url
+	context_dict['email_address'] = email_address
+	context_dict['public_profile_url'] = public_profile_url
 	return render(request,'orient/card.html',context_dict)
 
 
