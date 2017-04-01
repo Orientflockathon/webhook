@@ -39,12 +39,13 @@ class data(models.Model):
 #         return self.email
 
 class main(models.Model):
-    user_id = models.ForeignKey(Users , null=True)    teamid = models.CharField(max_length = 250, null=True)
+    user_id = models.ForeignKey(Users , null=True)   
     profile = models.CharField(max_length = 250, null=True)
-    # teamid = models.CharField(max_length = 250, null=True)
+    teamid = models.CharField(max_length = 250, null=True)
 
 
-
+    def __unicode__(self):
+        return self.profile
 
 
 class Saved(models.Model):
