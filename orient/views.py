@@ -74,6 +74,20 @@ def listenEvent(request):
 			# v.save()
 			print 'hellooooooo'
 			sendMessage2(sender_id , "hi how are you , how can i help you" )
+
+		if data["message"]["text"].lower()  == "#developer":
+			print 'hellooooooo12345'
+			# print data['token']
+			v = data.objects.filter(tags = 'Developer')
+			for i in v:
+				sendMessage2(sender_id , i.first-name)
+			
+			# v = Users.objects.get_or_create(user_token = data["token"])[0]
+			# v.user_id = data['userId']
+			# v.save()
+			print 'hellooooooo'
+			sendMessage2(sender_id , "here all all the developers for you " )
+	
 			# return HttpResponse('ok')
 
 		# elif data['name'] == 'client.slashCommand' :
