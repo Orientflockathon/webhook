@@ -60,8 +60,10 @@ def listenEvent(request):
 		}
 		response=json.dumps(response,indent=4)
 		data = json.loads(request.body)
+		sender_id = data["message"]["from"]
+		reciever_id = data["message"]["to"]
 
-		if data["message"]["text"] == "hi" :
+		if data["message"]["text"] in "hey,hello,hi,supp".split() :
 			print 'hellooooooo1234'
 			# print data['token']
 			
@@ -69,6 +71,7 @@ def listenEvent(request):
 			# v.user_id = data['userId']
 			# v.save()
 			print 'hellooooooo'
+			sendMessage2(sender_id , "hi how are you , how can i help you" )
 			# return HttpResponse('ok')
 
 		# elif data['name'] == 'client.slashCommand' :
@@ -113,6 +116,34 @@ def sendMessage(g_id , u_id ):
 	print r
 	print r.text
 
+def sendMessage2(u_id , message_text ):
+	d={
+				"name":"Orient",
+				"profileImage":"http://i.imgur.com/pAKIUxV.jpg"
+
+				}
+
+	print ' sosososo'
+	# print g_id
+	print u_id
+	v = Users.objects.get(user_id = u_id)
+	print v 
+	print v.user_token
+	url="http://api.flock.co/v1/chat.sendMessage"
+	
+	payload={
+	"to":u_id,
+	"text":message_text,
+	"token":v.user_token,
+	"sendAs":json.dumps(d)
+	}
+	headers={
+	"Content-Type":"application/x-www-form-urlencoded",
+	"Content-Length":"70"
+	}
+	r=requests.post(url,data=payload,headers=headers)
+	print r
+	print r.text
 
 def index(request):
 	# payload1 = {'response_type': 'code', 'state': '123456789', 'redirect_uri': 'https://fathomless-depths-13330.herokuapp.com/', 'client_id': '86xgcoikz5tvem' }
