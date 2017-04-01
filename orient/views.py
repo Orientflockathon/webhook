@@ -162,7 +162,7 @@ def listenEvent(request):
 
 		elif p.state == 8:
 			a = data2["message"]["text"]
-			array = a.split(':')
+			array = a.lower().split(':')
 			print array[0]
 			print array[1]
 			v = data.objects.all().filter(headline = array[0])
