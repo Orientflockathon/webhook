@@ -92,21 +92,18 @@ def listenEvent(request):
 			sendMessage2(sender_id , "here all all the developers for you " )
 
 
-		elif data2["message"]["text"].lower()  == "#developer":
+		elif data2["message"]["text"].lower()  == "#setup":
 			print 'hellooooooo12345'
 			# print data['token']
-			v = data.objects.all().filter(tags = 'Developer')
+			v =Users.objects.get_or_create(user_id = sender_id)
+			u = v.data_set.get_or_create()
 			print v
-			for i in v:
-				print "here are devs"
-				print i.first_name
-				sendMessage2(sender_id , i.first_name)
 			
-			# v = Users.objects.get_or_create(user_token = data["token"])[0]
-			# v.user_id = data['userId']
-			# v.save()
-			print 'hellooooooo'
-			sendMessage2(sender_id , "here all all the developers for you " )	
+			sendMessage2(sender_id , "Do you want to link it with Linkedin reply y or n" )
+			if 	data2["message"]["text"].lower()  == "y":
+				sendMessage2(sender_id , "https://www.linkedin.com/oauth/v2/authorization?client_id=86xgcoikz5tvem&redirect_uri=https://orient-flock.herokuapp.com/linkedin/&response_type=code" )
+
+
 	
 			# return HttpResponse('ok')
 
@@ -203,6 +200,9 @@ def index(request):
 
 	code = request.GET.get('code')
 	print code 
+
+	a = request.GET.get('a')
+	print a
 
 	
 
