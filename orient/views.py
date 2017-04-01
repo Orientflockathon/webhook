@@ -31,6 +31,7 @@ def listenEvent(request):
 			sendMessage(body['chat'])
 
 		if body['name'] == 'app.install' :
+			print 'installl'
 			return HttpResponse('ok')
 		
 				
