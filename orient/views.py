@@ -60,9 +60,9 @@ def listenEvent(request):
 		}
 		response=json.dumps(response,indent=4)
 		data2 = json.loads(request.body)
-		sender_id = data["message"]["from"]
+		sender_id = data2["message"]["from"]
 		print sender_id
-		reciever_id = data["message"]["to"]
+		reciever_id = data2["message"]["to"]
 		print reciever_id
 
 		if data2["message"]["text"]  == "hi":
