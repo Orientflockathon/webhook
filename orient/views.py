@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
+from orient.models import data , Users  , Saved 
 
 import requests
 import json
@@ -44,7 +45,7 @@ def index(request):
 
 
 
-	payload = {'grant_type': 'authorization_code', 'code': code , 'redirect_uri': 'https://orient-flock.herokuapp.com/linkedin/, 'client_id': '86xgcoikz5tvem', 'client_secret': 'bMGSpxX8XNEpxocO'}
+	payload = {'grant_type': 'authorization_code', 'code': code , 'redirect_uri': 'https://orient-flock.herokuapp.com/linkedin/', 'client_id': '86xgcoikz5tvem', 'client_secret': 'bMGSpxX8XNEpxocO'}
 
 	r = requests.post('https://www.linkedin.com/oauth/v2/accessToken', params=payload)
 	t = json.loads(r.text)
