@@ -80,6 +80,8 @@ def listenEvent(request):
 			# print data['token']
 			v = data.objects.filter(tags = 'Developer')
 			for i in v:
+				print "here are devs"
+				print i.first-name
 				sendMessage2(sender_id , i.first-name)
 			
 			# v = Users.objects.get_or_create(user_token = data["token"])[0]
