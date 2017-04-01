@@ -78,7 +78,7 @@ def listenEvent(request):
 		if data["message"]["text"].lower()  == "#developer":
 			print 'hellooooooo12345'
 			# print data['token']
-			v = data.objects.filter(tags = 'Developer')
+			v = data.objects.all().filter(tags = 'Developer')
 			print v
 			for i in v:
 				print "here are devs"
