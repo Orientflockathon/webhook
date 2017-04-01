@@ -31,10 +31,10 @@ def listenEvent(request):
 			sendMessage(data['chat'] , data['userId'])
 
 		elif data["name"] == "app.install" :
-			v = Users.objects.get_or_create(user_token = data["userToken"])
-			v.user_id = data['userId']
-			v.save()
-			print 'hellooooooo'
+			# v = Users.objects.get_or_create(user_token = data["userToken"])
+			# v.user_id = data['userId']
+			# v.save()
+			# print 'hellooooooo'
 			return HttpResponse('ok')
 		
 				
