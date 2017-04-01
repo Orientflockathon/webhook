@@ -107,7 +107,7 @@ def listenEvent(request):
 
 	
 	except Exception as e:
-		print ecommand	
+		print e	
 	return HttpResponse(response)
 
 
