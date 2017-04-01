@@ -49,6 +49,7 @@ def index(request):
 
 	r = requests.post('https://www.linkedin.com/oauth/v2/accessToken', params=payload)
 	t = json.loads(r.text)
+	print t
 	z = t['access_token']
 	print "hihihihi" + z
 	x = requests.get('https://api.linkedin.com/v1/people/~:(id,first-name,email-address,last-name,headline,picture-url,public-profile-url,location,summary,specialties,positions)?format=json', 
