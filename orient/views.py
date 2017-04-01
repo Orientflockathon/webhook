@@ -117,11 +117,13 @@ def sendMessage(g_id , u_id ):
 	print g_id
 	print u_id
 	v = Users.objects.get(user_id = u_id)
+	idn  = u_id.split(':')[1]
 	print v 
 	print v.user_token
-	url="http://api.flock.co//v1/chat.sendMessage"
+	print idn
+	url="http://api.flock.co/v1/chat.sendMessage"
 	
-	widgetdict={ "src": "https://www.w3schools.com/html/html_iframe.asp", "width": 400, "height": 400 } 
+	widgetdict={ "src": "https://orient-flock.herokuapp.com/card/" + idn, "width": 400, "height": 400 } 
 	viewdict={"widget":widgetdict}
 	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
 	print (attachmentarrdict)
@@ -264,6 +266,7 @@ def card(requests , id):
 	context_dict['picture_url'] = p.picture_url
 	context_dict['email_address'] = p.email_address
 	context_dict['public_profile_url'] = p.public_profile_url
+	context_dict['description'] = p.description
 	return render(requests,'orient/card.html',context_dict)
 
 
