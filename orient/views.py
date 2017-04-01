@@ -141,16 +141,16 @@ def listenEvent(request):
 			p.state = 7
 			p.save()
 			sendMessage2(sender_id ,'Profile picture that you want to add')
-			return 'Profile picture that you want to add'
 
 		elif p.state == 7:
+			p.picture_url = data2["message"]["views"]["image"]["thumbnail"]["src"]
 
 			p.state  = 0
 			##handle saving image
 			p.save()
 			sendMessage2(sender_id ,'thanks your profile is all set.')
 
-		elif message_text.lower() in "hey,hi,supp".split(','):
+		elif data2["message"]["text"].lower() in "hey,hi,supp".split(','):
 			##give user the details to use slash commands
 			return 'enter /setup to register without linkedIn /n enter /'
 
