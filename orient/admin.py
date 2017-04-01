@@ -1,5 +1,5 @@
 from django.contrib import admin
-from orient.models import data , Saved , Users , login
+from orient.models import data , Saved , Users 
 
 # Register your models here.
 
