@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+{% load staticfiles %}
+  <title>card</title>
+   <link rel="stylesheet" href="{% static 'https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css' %}">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+   .virtualRepeatdemoHorizontalUsage #horizontal-container {
+     height: 570px;
+     width: 100%;
+     max-width: 1500px; 
+   }
+
+   .virtualRepeatdemoHorizontalUsage .repeated-item {
+     border-right: 0px solid #ddd;
+     box-sizing: border-box;
+     display: inline-block;
+     height: 580px;
+     padding-top: 1px;
+     text-align: center;
+     width: 400px; 
+     }
+
+   .virtualRepeatdemoHorizontalUsage .md-card-image{
+     height: 200px;
+     width: 100%;
+   }
+
+   .virtualRepeatdemoHorizontalUsage md-content {
+     margin: 16px; 
+   }
+
+   .virtualRepeatdemoHorizontalUsage .btn1:not([disabled]):hover {
+     background-color: rgba(107, 103, 91, 0.96);
+     color: white;
+   }
+  </style>
+</head>
+<body>
+<center>
+<iframe>
+  <div ng-controller="AppCtrl as ctrl" ng-cloak="" class="virtualRepeatdemoHorizontalUsage" ng-app="MyApp">
+    <md-content layout="column">
+      <md-virtual-repeat-container id="horizontal-container" md-orient-horizontal="">
+        <div md-virtual-repeat="" class="repeated-item" flex="">
+         <md-card>
+          <img src="{{picture_url}}" class="md-card-image" alt="Washed Out">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">{{first_name}}{{last_name}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              <i class="fa fa-chevron-right"></i>
+              {{headline}}
+            </p>
+            <p>
+              <i class="fa fa-hand-o-right"></i>
+              {{summary}}
+            </p>
+            <p>
+              <i class="fa fa-users"></i>
+              Intern at HT
+            </p>
+            <p>
+              <i class="fa fa-envelope"></i>
+              {{public_profile_url}}
+            </p>
+            <p>
+              <i class="fa fa-envelope"></i>
+              {{public_profile_url}}
+            </p>
+            <p>
+              <i class="fa fa-map-marker"></i>
+              {{email_address}}
+            </p> 
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <a href="https://www.w3schools.com/jsref/event_onclick.asp"><i class="fa fa-star"></i></a>
+            <a href="https://www.w3schools.com/jsref/event_onclick.asp"><i class="fa fa-plus"></i></a>
+          </md-card-actions>
+        </md-card>
+        </div>
+      </md-virtual-repeat-container>
+    </md-content>
+  </div>
+</iframe>
+</center>
+
+</body>
+<script>
+  angular.module('MyApp', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
+  $scope.imagePath = '';
+});
+</script>
+</html>

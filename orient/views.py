@@ -118,20 +118,9 @@ def index(request):
 	# payload1 = {'response_type': 'code', 'state': '123456789', 'redirect_uri': 'https://fathomless-depths-13330.herokuapp.com/', 'client_id': '86xgcoikz5tvem' }
 	# p = requests.get('https://www.linkedin.com/oauth/v2/authorization', params=payload1)
 	# print(p)
-	
-
-
-	
-
-
-
 
 	code = request.GET.get('code')
 	print code 
-
-	
-
-
 
 
 	payload = {'grant_type': 'authorization_code', 'code': code , 'redirect_uri': 'https://orient-flock.herokuapp.com/linkedin/', 'client_id': '86xgcoikz5tvem', 'client_secret': 'bMGSpxX8XNEpxocO'}
@@ -188,15 +177,27 @@ def index(request):
 	u.positions = q['positions']
 	u.save()
 
-
-
-
-
 	responseobj = json.dumps(q, indent = 4)
-
-
-
-
-
-
 	return HttpResponse(responseobj,content_type = "application/json")
+
+
+
+
+
+def card(requests,id):
+	p = data.objects.get_or_create(user_id = id)[0]
+	context_dict = {}
+    context_dict['first_name'] = first_name
+    context_dict['last_namelast_name'] = last_name
+    context_dict['headline'] = headline
+    context_dict['location'] = location 
+    context_dict['summary'] = summary
+    context_dict['picture_url'] = picture_url
+    context_dict['email_address'] = email_address
+    context_dict['public_profile_url'] = public_profile_url
+	return render(request,'orient/card.html',context_dict)
+
+
+
+
+
