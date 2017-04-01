@@ -235,8 +235,8 @@ def index(request):
 
 
 
-def card(requests,id):
-	p = data.objects.get_or_create(user_id = id)[0]
+def card(requests):
+	p = data.objects.get_or_create(user_id = 'u:mgmjkx1mjww22dx1')[0]
 	context_dict = {}
 	context_dict['first_name'] = first_name
 	context_dict['last_namelast_name'] = last_name
