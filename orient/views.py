@@ -30,6 +30,11 @@ def listenEvent(request):
 		
 			sendMessage(body['chat'])
 
+		if body['name'] == 'app.install' :
+			return HttpResponse('ok')
+		
+				
+
 
 	
 	except Exception as e:
