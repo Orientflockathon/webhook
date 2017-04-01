@@ -56,6 +56,7 @@ def sendMessage(g_id , u_id ):
 	print g_id
 	print u_id
 	v = Users.objects.get_or_create(userId = u_id)[0]
+	print v 
 	print v.user_token
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
