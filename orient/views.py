@@ -98,8 +98,8 @@ def listenEvent(request):
 			v =Users.objects.get_or_create(user_id = sender_id)[0]
 			p = v.data_set.get_or_create()[0]
 			
-			incomingMessage = data2["message"]["text"]
-			print incomingMessage
+			
+			# print incomingMessage
 			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
 			p.state =1 
 			p.save()
@@ -110,32 +110,32 @@ def listenEvent(request):
 
 			elif p.state == 2:
 				print "sososososo"
-				p.first_name = incomingMessage
+				p.first_name = data2["message"]["text"]
 				p.state = 3
 				p.save()
 				sendMessage2(sender_id ,'Profile headline')
 				
 			elif p.state == 3:
-				p.headline = incomingMessage
+				p.headline = data2["message"]["text"]
 				p.state = 4
 				p.save()
 				sendMessage2(sender_id ,'Enter the city where you live')
 				
 
 			elif p.state == 4:
-				p.location = incomingMessage
+				p.location = data2["message"]["text"]
 				p.state = 5
 				p.save()
 				sendMessage2(sender_id ,'Provide a short description of your profile')
 
 			elif p.state == 5:
-				p.summary = incomingMessage
+				p.summary = data2["message"]["text"]
 				p.state = 6
 				p.save()
 				sendMessage2(sender_id ,'Email address')
 
 			elif p.state == 6:
-				p.email_address = incomingMessage
+				p.email_address = data2["message"]["text"]
 				p.state = 7
 				p.save()
 				sendMessage2(sender_id ,'Profile picture that you want to add')
