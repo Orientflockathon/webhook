@@ -274,7 +274,7 @@ def card(requests , id):
 
 
 def frame(requests , id):
-
+	context_dict = {}
 	context_dict['url'] = 'https://orient-flock.herokuapp.com/card/' + id
 	
 	return render(requests,'orient/frame.html',context_dict)
