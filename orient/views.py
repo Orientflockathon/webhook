@@ -37,6 +37,7 @@ def listenEvent(request):
 			return HttpResponse('ok')
 
 		elif data['name'] == 'client.slashCommand' :
+			print ' suppppppp'
 		
 			sendMessage(data['chat'] , data['userId'])
 
