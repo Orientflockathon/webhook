@@ -1,0 +1,57 @@
+<html>
+<head>
+	<script src='https://cdn.jsdelivr.net/animatecss/3.5.2/animate.css'>
+
+	</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script type='Text/JavaScript' src='jquery.lettering.js'></script>
+    <script src="http://jschr.github.io/textillate/jquery.textillate.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" rel="stylesheet"/>
+</head>
+
+<body>
+<h1 class="hello">
+    <ul class="texts">
+        <li>Some Title</li>   
+        <li >Another Title</li>
+    </ul>
+</h1>
+<script>
+	$(document).ready(function() {   //check the following documentation https://github.com/jschr/textillate//
+/*$('.hello').textillate({
+    minDisplayTime: 1000, 
+    in: { effect: 'fadeInLeftBig' }, 
+    out :{  delay: 3, effect: 'fadeOutRightBig'},
+    loop: true
+});*/
+    $('.hello').textillate({
+       minDisplayTime: 1000,
+       in: {
+       	   initialDelay: 0,
+       	   effect: 'fadeInLeftBig',
+           shuffle: false,
+           sync:false, 
+            delay: 50
+            
+       },
+       out: { 
+       	     delay: 3,
+             effect: 'fadeOutRightBig',
+             shuffle: false,
+             sync: false,
+       },
+       loop: true,
+       
+    });
+});
+</script>
+</html>
