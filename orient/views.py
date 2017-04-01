@@ -64,9 +64,8 @@ def listenEvent(request):
 		print sender_id
 		reciever_id = data2["message"]["to"]
 		print reciever_id
-		incomingMessage = data2["message"]["text"]
+		
 
-		if data2["message"]["text"]  == "hi":
 			print 'hellooooooo1234'
 			# print data['token']
 			
@@ -99,7 +98,8 @@ def listenEvent(request):
 			v =Users.objects.get_or_create(user_id = sender_id)[0]
 			p = v.data_set.get_or_create()[0]
 			
-			
+			incomingMessage = data2["message"]["text"]
+			print incomingMessage
 			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
 			p.state =1 
 			p.save()
@@ -109,6 +109,7 @@ def listenEvent(request):
 				sendMessage2(sender_id ,'Enter your name')
 
 			elif p.state == 2:
+				print "sososososo"
 				p.first_name = incomingMessage
 				p.state = 3
 				p.save()
