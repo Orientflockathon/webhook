@@ -105,7 +105,7 @@ def sendMessage(g_id , u_id ):
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
 	payload={
-	"to":g_id,
+	"to":u_id,
 	"text":"Shivam is out of Bitcap \n thanks and regards",
 	"token":v.user_token,
 	# "sendAs":json.dumps(d)
