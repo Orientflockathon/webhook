@@ -79,6 +79,7 @@ def listenEvent(request):
 			print 'hellooooooo12345'
 			# print data['token']
 			v = data.objects.filter(tags = 'Developer')
+			print v
 			for i in v:
 				print "here are devs"
 				print i.first-name
