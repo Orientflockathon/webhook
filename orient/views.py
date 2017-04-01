@@ -30,9 +30,9 @@ def listenEvent(request):
 		
 			sendMessage(body['chat'])
 
-		elif body['name'] == 'app.install' :
+		elif body["name"] == "app.install" :
 			print 'hellooooooo'
-			return HttpResponse('ok')
+			# return HttpResponse('ok')
 		
 				
 
