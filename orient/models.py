@@ -4,15 +4,18 @@ from django.db import models
 # Create your models here.
 
 class Users(models.Model):
-    idn = models.CharField(max_length = 250)
+    # idn = models.CharField(max_length = 250)
+    user_id = models.CharField(max_length = 250)
 
     def __unicode__(self):
-        return self.idn
+        return self.user_id
 
 
 class data(models.Model):
     # mac_address = models.CharField(max_length = 250,null=True)
-    idn = models.ForeignKey(Users , null=True)
+    user_id = models.ForeignKey(Users , null=True)
+    idn = models.CharField(max_length = 250)
+
     first_name = models.CharField(max_length = 100 , null=True)
     last_name = models.CharField(max_length = 1000 , null=True)
     headline= models.CharField(max_length = 1000,null=True)
@@ -34,6 +37,14 @@ class data(models.Model):
 
 #     def __unicode__(self):
 #         return self.email
+
+class main(models.Model):
+    user_id = models.ForeignKey(Users , null=True)    teamid = models.CharField(max_length = 250, null=True)
+    profile = models.CharField(max_length = 250, null=True)
+    # teamid = models.CharField(max_length = 250, null=True)
+
+
+
 
 
 class Saved(models.Model):
