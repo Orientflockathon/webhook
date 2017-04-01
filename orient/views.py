@@ -32,15 +32,14 @@ def listenEvent(request):
 
 		if body['name'] == 'app.install' :
 			print 'installl'
-			return HttpResponse('ok')
-		
+			
 				
 
 
 	
 	except Exception as e:
 		print ecommand
-	return HttpResponse(response)
+	return HttpResponse('response')
 
 def sendMessage(g_id ):
 	url="http://api.flock.co//v1/chat.sendMessage"
