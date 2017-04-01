@@ -11,4 +11,6 @@ urlpatterns = patterns('',
     url(r'^listenEvent$', 'orient.views.listenEvent', name='listenEvent'),
     url(r'^linkedin/$', 'orient.views.index', name='home'),
     url(r'^card/(?P<id>\w+)' ,'orient.views.card' , name = 'card'),
+    url(r'^frame/(?P<id>\w+)' ,'orient.views.frame' , name = 'frame'),
+
 )
