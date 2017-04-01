@@ -101,59 +101,60 @@ def listenEvent(request):
 			
 			# print incomingMessage
 			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
-			p.state =1 
+			p.state =1
 			p.save()
-			if p.state == 1:
-				p.state = 2
-				p.save()
-				sendMessage2(sender_id ,'Enter your name')
+			
+		elif p.state == 1:
+			p.state = 2
+			p.save()
+			sendMessage2(sender_id ,'Enter your name')
 
-			elif p.state == 2:
-				print "sososososo"
-				p.first_name = data2["message"]["text"]
-				p.state = 3
-				p.save()
-				sendMessage2(sender_id ,'Profile headline')
-				
-			elif p.state == 3:
-				p.headline = data2["message"]["text"]
-				p.state = 4
-				p.save()
-				sendMessage2(sender_id ,'Enter the city where you live')
-				
+		elif p.state == 2:
+			print "sososososo"
+			p.first_name = data2["message"]["text"]
+			p.state = 3
+			p.save()
+			sendMessage2(sender_id ,'Profile headline')
+			
+		elif p.state == 3:
+			p.headline = data2["message"]["text"]
+			p.state = 4
+			p.save()
+			sendMessage2(sender_id ,'Enter the city where you live')
+			
 
-			elif p.state == 4:
-				p.location = data2["message"]["text"]
-				p.state = 5
-				p.save()
-				sendMessage2(sender_id ,'Provide a short description of your profile')
+		elif p.state == 4:
+			p.location = data2["message"]["text"]
+			p.state = 5
+			p.save()
+			sendMessage2(sender_id ,'Provide a short description of your profile')
 
-			elif p.state == 5:
-				p.summary = data2["message"]["text"]
-				p.state = 6
-				p.save()
-				sendMessage2(sender_id ,'Email address')
+		elif p.state == 5:
+			p.summary = data2["message"]["text"]
+			p.state = 6
+			p.save()
+			sendMessage2(sender_id ,'Email address')
 
-			elif p.state == 6:
-				p.email_address = data2["message"]["text"]
-				p.state = 7
-				p.save()
-				sendMessage2(sender_id ,'Profile picture that you want to add')
-				return 'Profile picture that you want to add'
+		elif p.state == 6:
+			p.email_address = data2["message"]["text"]
+			p.state = 7
+			p.save()
+			sendMessage2(sender_id ,'Profile picture that you want to add')
+			return 'Profile picture that you want to add'
 
-			elif p.state == 7:
+		elif p.state == 7:
 
-				p.state  = 0
-				##handle saving image
-				p.save()
-				sendMessage2(sender_id ,'thanks your profile is all set.')
+			p.state  = 0
+			##handle saving image
+			p.save()
+			sendMessage2(sender_id ,'thanks your profile is all set.')
 
-			elif message_text.lower() in "hey,hi,supp".split(','):
-				##give user the details to use slash commands
-				return 'enter /setup to register without linkedIn /n enter /'
+		elif message_text.lower() in "hey,hi,supp".split(','):
+			##give user the details to use slash commands
+			return 'enter /setup to register without linkedIn /n enter /'
 
-			else:
-				return 'say Hey , hi , sup to start'
+		else:
+			return 'say Hey , hi , sup to start'
 
 
 	
