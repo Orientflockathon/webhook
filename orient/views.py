@@ -251,8 +251,8 @@ def index(request):
 	responseobj = json.dumps(q, indent = 4)
 
 def card(requests , id):
-	print id 
-	q = Users.objects.get(user_id = id)
+	# print id.split(:)[1] 
+	q = Users.objects.get(user_id = "u:" + id)
 
 	p = q.data_set.get_or_create()[0]
 	context_dict = {}
