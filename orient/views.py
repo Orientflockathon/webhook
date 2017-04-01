@@ -165,7 +165,7 @@ def listenEvent(request):
 			array = a.split(':')
 			print array[0]
 			print array[1]
-			v = data.objects.all().filter(tags = array[0])
+			v = data.objects.all().filter(headline = array[0])
 			for i in v :
 				print i.user_id
 
