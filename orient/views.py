@@ -44,7 +44,7 @@ def index(request):
 
 
 
-	payload = {'grant_type': 'authorization_code', 'code': code , 'redirect_uri': 'https://orient-flock.herokuapp.com/', 'client_id': '86xgcoikz5tvem', 'client_secret': 'bMGSpxX8XNEpxocO'}
+	payload = {'grant_type': 'authorization_code', 'code': code , 'redirect_uri': 'https://orient-flock.herokuapp.com/linkedin/, 'client_id': '86xgcoikz5tvem', 'client_secret': 'bMGSpxX8XNEpxocO'}
 
 	r = requests.post('https://www.linkedin.com/oauth/v2/accessToken', params=payload)
 	t = json.loads(r.text)
