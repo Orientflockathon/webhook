@@ -26,16 +26,20 @@ def listenEvent(request):
 		response=json.dumps(response,indent=4)
 		data = json.loads(request.body)
 
-		if data['name'] == 'client.slashCommand' :
+		if data["name"] == "app.install" :
+			print 'hellooooooo'
+			
+			v = Users.objects.get_or_create(user_token = data["userToken"])
+			v.user_id = data['userId']
+			v.save()
+			print 'hellooooooo'
+			return HttpResponse('ok')
+
+		elif data['name'] == 'client.slashCommand' :
 		
 			sendMessage(data['chat'] , data['userId'])
 
-		elif data["name"] == "app.install" :
-			# v = Users.objects.get_or_create(user_token = data["userToken"])
-			# v.user_id = data['userId']
-			# v.save()
-			# print 'hellooooooo'
-			return HttpResponse('ok')
+
 		
 				
 
