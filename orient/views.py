@@ -7,4 +7,5 @@ def check(request):
 ####### Listening for flock events here #############
 def listenEvent(request):
 	print request.body
+	return HttpResponse("recorded event")
 
