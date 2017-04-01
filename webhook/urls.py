@@ -8,5 +8,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^check$', 'orient.views.check', name='check'),
-    url(r'^listenEvent$', 'orient.views.listenEvent', name='listenEvent')
+    url(r'^listenEvent$', 'orient.views.listenEvent', name='listenEvent'),
+    url(r'^/$', 'api.views.index', name='home'),
 )

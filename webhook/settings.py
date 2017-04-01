@@ -80,13 +80,22 @@ USE_L10N = True
 USE_TZ = True
 ##################### ADDING DB INFO HERE #####################
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'flock',
+        'USER': 'orient',
+        'PASSWORD': 'awesome',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
+#aaaa
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
