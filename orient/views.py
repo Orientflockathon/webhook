@@ -167,7 +167,11 @@ def listenEvent(request):
 			print array[1]
 			v = data.objects.all().filter(tags = array[0])
 			for i in v :
-				 print i.user_id
+				print i.user_id
+
+				sendMessage2(i.user_id ,array[1])
+	 
+
 
 			
 
