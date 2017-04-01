@@ -20,10 +20,15 @@ def listenEvent(request):
 	try:	
 		print "received an event"
 		print "The request body is ",request.body
+		response={
+		"text":"Wait a Second"
+		}
+		response=json.dumps(response,indent=4)
+
 
 	except Exception as e:
 		print e
-	return HttpResponse("recorded event")
+	return HttpResponse(response)
 
 def index(request):
 	# payload1 = {'response_type': 'code', 'state': '123456789', 'redirect_uri': 'https://fathomless-depths-13330.herokuapp.com/', 'client_id': '86xgcoikz5tvem' }
