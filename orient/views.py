@@ -42,6 +42,8 @@ def listenEvent(request):
 			sendMessage(data['chat'] , data['userId'])
 
 
+
+
 		
 				
 
@@ -49,7 +51,44 @@ def listenEvent(request):
 	
 	except Exception as e:
 		print ecommand
+
+	try:	
+		print "received an event"
+		print "The request body is ",request.body
+		response={
+		"text":"Wait a Second"
+		}
+		response=json.dumps(response,indent=4)
+		data = json.loads(request.body)
+
+		if data["message"]["text"] == "hi" :
+			print 'hellooooooo1234'
+			# print data['token']
+			
+			# v = Users.objects.get_or_create(user_token = data["token"])[0]
+			# v.user_id = data['userId']
+			# v.save()
+			print 'hellooooooo'
+			# return HttpResponse('ok')
+
+		# elif data['name'] == 'client.slashCommand' :
+		# 	print ' suppppppp'
+		
+		# 	sendMessage(data['chat'] , data['userId'])
+
+
+
+
+		
+				
+
+
+	
+	except Exception as e:
+		print ecommand	
 	return HttpResponse(response)
+
+
 
 def sendMessage(g_id , u_id ):
 	print ' sosososo'
