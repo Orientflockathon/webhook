@@ -121,11 +121,16 @@ def sendMessage(g_id , u_id ):
 	print v.user_token
 	url="http://api.flock.co//v1/chat.sendMessage"
 	
+	widgetdict={ "src": "https://www.w3schools.com/html/html_iframe.asp", "width": 400, "height": 400 } 
+	viewdict={"widget":widgetdict}
+	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
+	print (attachmentarrdict)
 	payload={
 	"to":g_id,
-	"text":"Shivam is out of Bitcap \n thanks and regards",
 	"token":v.user_token,
-	# "sendAs":json.dumps(d)
+	# "sendAs":json.dumps(d) , 
+		"attachments" :json.dumps([attachmentarrdict] )
+	
 	}
 	headers={
 	"Content-Type":"application/x-www-form-urlencoded",
@@ -245,10 +250,8 @@ def index(request):
 
 	responseobj = json.dumps(q, indent = 4)
 
-<<<<<<< HEAD
-=======
-def card(requests):
-	q = Users.objects.get(user_id = 'u:mgmjkx1mjww22dx1')
+def card(requests , id):
+	q = Users.objects.get(user_id = id)
 
 	p = q.data_set.get_or_create()[0]
 	context_dict = {}
@@ -261,7 +264,7 @@ def card(requests):
 	context_dict['email_address'] = p.email_address
 	context_dict['public_profile_url'] = p.public_profile_url
 	return render(requests,'orient/card.html',context_dict)
->>>>>>> 53271910a14913c414d3d08949968c4981a40bc2
+
 
 
 
