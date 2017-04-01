@@ -7,7 +7,11 @@ def check(request):
 ####### Listening for flock events here #############
 @csrf_exempt
 def listenEvent(request):
-	print "received an event"
-	print "The request body is ",request.body
+	try:	
+		print "received an event"
+		print "The request body is ",request.body
+
+	except Exception as e:
+		print e
 	return HttpResponse("recorded event")
 
