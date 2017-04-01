@@ -7,7 +7,7 @@ from orient.models import data , Users  , Saved
 import requests
 import json
 from django.http import HttpResponse
-from api.models import data , Users , login , Saved 
+from orient.models import data , Users  , Saved 
 from django.shortcuts import redirect
 
 
