@@ -64,6 +64,7 @@ def listenEvent(request):
 		print sender_id
 		reciever_id = data2["message"]["to"]
 		print reciever_id
+		incomingMessage = data2["message"]["text"]
 
 		if data2["message"]["text"]  == "hi":
 			print 'hellooooooo1234'
@@ -96,12 +97,59 @@ def listenEvent(request):
 			print 'hellooooooo12345'
 			# print data['token']
 			v =Users.objects.get_or_create(user_id = sender_id)
-			u = v.data_set.get_or_create()
+			p = v.data_set.get_or_create()
 			print v
 			
 			sendMessage2(sender_id , "Do you want to link it with Linkedin reply y or n" )
-			if 	data2["message"]["text"].lower()  == "y":
-				sendMessage2(sender_id , "https://www.linkedin.com/oauth/v2/authorization?client_id=86xgcoikz5tvem&redirect_uri=https://orient-flock.herokuapp.com/linkedin/&response_type=code" )
+			p.state =1 
+			p.save()
+			if p.state == 1:
+				p.state = 2
+				p.save()
+				return 'Enter your name'
+
+			elif p.state == 2:
+				p.first_name = incomingMessage
+				p.state = 3
+				p.save()
+				return 'Profile headline'
+
+			elif p.state == 3:
+				p.headline = incomingMessage
+				p.state = 4
+				p.save()
+				return 'Enter the city where you live'
+
+			elif p.state == 4:
+				p.location = incomingMessage
+				p.state = 5
+				p.save()
+				return 'Provide a short description of your profile'
+
+			elif p.state == 5:
+				p.summary = incomingMessage
+				p.state = 6
+				p.save()
+				return 'Email address'
+
+			elif p.state == 6:
+				p.email_address = incomingMessage
+				p.state = 7
+				p.save()
+				return 'Profile picture that you want to add'
+
+			elif p.state == 7:
+				
+				p.state  = 0
+				##handle saving image
+				p.save()
+
+			elif message_text.lower() in "hey,hi,supp".split(','):
+				##give user the details to use slash commands
+				return 'enter /setup to register without linkedIn /n enter /'
+
+			else:
+				return 'say Hey , hi , sup to start'
 
 
 	
