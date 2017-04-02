@@ -85,7 +85,8 @@ def listenEvent(request):
 			for i in v:
 				print "here are devs"
 				print i.first_name
-				sendMessage2(sender_id , i.first_name)
+
+				sendMessage3(sender_id)
 			
 			# v = Users.objects.get_or_create(user_token = data["token"])[0]
 			# v.user_id = data['userId']
@@ -234,6 +235,40 @@ def sendMessage(g_id , u_id ):
 	r=requests.post(url,data=payload,headers=headers)
 	print r
 	print r.text
+
+
+def sendMessage3( u_id ):
+	print ' sosososo'
+	# print g_id
+	print u_id
+	v = Users.objects.get(user_id = u_id)
+	idn  = u_id.split(':')[1]
+	print v 
+	print v.user_token
+	print idn
+	url="http://api.flock.co/v1/chat.sendMessage"
+	
+	# widgetdict={ "inline": '<html><body><iframe src="https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1" "width": 800 "height": 800 ></body></html>' } 
+	
+	widgetdict={ "src": 'https://orient-flock.herokuapp.com/card/' + idn  ,'height': 600} 
+
+	viewdict={"widget":widgetdict}
+	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
+	print (attachmentarrdict)
+	payload={
+	"to":u_id,
+	"token":v.user_token,
+	# "sendAs":json.dumps(d) , 
+		"attachments" :json.dumps([attachmentarrdict] )
+	
+	}
+	headers={
+	"Content-Type":"application/x-www-form-urlencoded",
+	"Content-Length":"70"
+	}
+	r=requests.post(url,data=payload,headers=headers)
+	print r
+	print r.text	
 
 def sendMessage2(u_id , message_text ):
 	d={
