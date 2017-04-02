@@ -86,7 +86,7 @@ def listenEvent(request):
 				print "here are devs"
 				print i.first_name
 
-				sendMessage3(sender_id)
+				sendMessage3(i.user_id)
 			
 			# v = Users.objects.get_or_create(user_token = data["token"])[0]
 			# v.user_id = data['userId']
