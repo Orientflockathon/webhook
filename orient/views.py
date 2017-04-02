@@ -215,7 +215,7 @@ def sendMessage(g_id , u_id ):
 	
 	# widgetdict={ "inline": '<html><body><iframe src="https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1" "width": 800 "height": 800 ></body></html>' } 
 	
-	widgetdict={ "src": 'https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1' } 
+	widgetdict={ "src": 'https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1' ,'height': 800} 
 
 	viewdict={"widget":widgetdict}
 	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
