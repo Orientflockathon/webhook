@@ -34,6 +34,8 @@ def listenEvent(request):
 			v.user_id = data2['userId']
 			v.save()
 			print 'hellooooooo'
+
+
 			return HttpResponse('ok')
 
 		elif data2['name'] == 'client.slashCommand' :
@@ -93,7 +95,7 @@ def listenEvent(request):
 			# v.user_id = data['userId']
 			# v.save()
 			print 'hellooooooo'
-			sendMessage2(sender_id , "here all all the developers for you " )
+			sendMessage2(sender_id , "here are all the developers for you " )
 
 
 		elif data2["message"]["text"].lower()  == "#setup":
@@ -103,21 +105,34 @@ def listenEvent(request):
 			
 			
 			# print incomingMessage
-			sendMessage2(sender_id , "Do you Agree to answer a few quesreply y or n" )
+			sendMessage2(sender_id , "Do you Agree to answer a few questions reply y or n" )
 			p.state =1
 			p.save()
+
+		elif data2["message"]["text"].lower()  == "hi":
+			print 'hellooooooo12345'
+			# print data['token']
+			
+			
+			
+			# print incomingMessage
+			sendMessage2(sender_id , "hey!Waddup,this is orient bot and i will help you search people in groups according to their job profile send your vCards to people and save people who can be of some interest in future. --you can use the coomands shown below" )
+			
+			sendAttachmentImage('http://i.imgur.com/lR542bC.jpg' , sender_id)
+			sendAttachmentImage('http://i.imgur.com/nyVcvDD.jpg' , sender_id)
+			sendAttachmentImage('http://i.imgur.com/0wzMzbb.jpg' , sender_id)
 
 		elif p.state == 1:
 			p.state = 2
 			p.save()
-			sendMessage2(sender_id ,'Enter your name')
+			sendMessage2(sender_id ,'Please enter your name')
 
 		elif p.state == 2:
 			print "sososososo"
 			p.first_name = data2["message"]["text"]
 			p.state = 3
 			p.save()
-			sendMessage2(sender_id ,'Profile headline')
+			sendMessage2(sender_id ,'Can i have a profile headline for eg:developer , designer etc.')
 			
 		elif p.state == 3:
 			p.headline = data2["message"]["text"]
@@ -136,13 +151,14 @@ def listenEvent(request):
 			p.summary = data2["message"]["text"]
 			p.state = 6
 			p.save()
-			sendMessage2(sender_id ,'Email address')
+			sendMessage2(sender_id ,'Can i have Email address')
 
 		elif p.state == 6:
 			p.email_address = data2["message"]["text"]
 			p.state = 7
 			p.save()
-			sendMessage2(sender_id ,'Profile picture that you want to add')
+			sendMessage2(sender_id ,'please attach a  picture that you want to add and send')
+
 
 		elif p.state == 7:
 			p.picture_url = data2["message"]["attachments"][0]["views"]["image"]["thumbnail"]["src"]
@@ -160,7 +176,7 @@ def listenEvent(request):
 			p.state = 8
 			p.save()
 
-			sendMessage2(sender_id ,'Enter profle and your shoutout in this format developers:your message')
+			sendMessage2(sender_id ,'Enter profle and your shoutout in this format developer:your message')
 
 		elif p.state == 8:
 			a = data2["message"]["text"]
@@ -413,3 +429,27 @@ def frame(requests , id):
 	context_dict['url'] = 'https://orient-flock.herokuapp.com/card/' + id
 	
 	return render(requests,'orient/frame.html',context_dict)
+
+def sendAttachmentImage(url1 , u_id):
+	url="http://api.flock.co/v1/chat.sendMessage"
+	d={
+				"name":"Orient",
+				"profileImage":"http://i.imgur.com/pAKIUxV.jpg"
+
+				}
+	widgetdict={"original": { "src": url1, "width": 400, "height": 400 }}
+	viewdict={"image":widgetdict}
+	attachmentarrdict={"title":"","description":"","views":viewdict}
+	print (attachmentarrdict)
+	payload={
+	"to":u_id,
+	"token":"ba0af222-e3b0-4686-b2d7-ea9fa7839cc9", 
+		"attachments" :json.dumps([attachmentarrdict])
+	}
+	headers={
+	"Content-Type":"application/x-www-form-urlencoded",
+	"Content-Length":"70"
+	}
+	r=requests.post(url,data=payload,headers=headers)
+	print (r)
+	print (r.text)
