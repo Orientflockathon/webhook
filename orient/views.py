@@ -86,7 +86,7 @@ def listenEvent(request):
 				print "here are devs"
 				print i.first_name
 
-				sendMessage3(i.user_id)
+				sendMessage3( sender_id , i.user_id )
 			
 			# v = Users.objects.get_or_create(user_token = data["token"])[0]
 			# v.user_id = data['userId']
@@ -237,7 +237,7 @@ def sendMessage(g_id , u_id ):
 	print r.text
 
 
-def sendMessage3( u_id ):
+def sendMessage3(card_id, u_id ):
 	print ' sosososo'
 	# print g_id
 	print u_id
@@ -256,7 +256,7 @@ def sendMessage3( u_id ):
 	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
 	print (attachmentarrdict)
 	payload={
-	"to":u_id,
+	"to":card_id,
 	"token":'ba0af222-e3b0-4686-b2d7-ea9fa7839cc9',
 	# "sendAs":json.dumps(d) , 
 		"attachments" :json.dumps([attachmentarrdict] )
