@@ -123,7 +123,7 @@ def listenEvent(request):
 			sendAttachmentImage('http://i.imgur.com/0wzMzbb.jpg' , sender_id)
 			sendAttachmentImage('http://i.imgur.com/9MDkAzt.png' , sender_id)
 
-		elif p.state == 1
+		elif p.state == 1:
 			p.state = 2
 			p.save()
 			sendMessage2(sender_id ,'Please enter your name')
