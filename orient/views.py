@@ -242,9 +242,9 @@ def sendMessage(g_id , u_id ):
 def sendMessage3(card_id, u_id ):
 	print ' sosososo'
 	# print g_id
-	print u_id.type()
+	print u_id
 	v = Users.objects.get(user_id = u_id)
-	idn1  = u_id.split(':')[1]
+	idn1  = str(u_id).split(':')[1]
 	print v 
 	print v.user_token
 	print idn
