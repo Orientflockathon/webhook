@@ -242,7 +242,7 @@ def sendMessage(g_id , u_id ):
 def sendMessage3(card_id, u_id ):
 	print ' sosososo'
 	# print g_id
-	print u_id
+	print u_id.type()
 	v = Users.objects.get(user_id = u_id)
 	idn1  = u_id.split(':')[1]
 	print v 
