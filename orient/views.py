@@ -80,7 +80,7 @@ def listenEvent(request):
 		if data2["message"]["text"].lower()  == "#developer":
 			print 'hellooooooo12345'
 			# print data['token']
-			v = data.objects.all().filter(tags = 'Developer')
+			v = data.objects.all().filter(headline = 'Developer')
 			print v
 			for i in v:
 				print "here are devs"
@@ -213,8 +213,8 @@ def sendMessage(g_id , u_id ):
 	print idn
 	url="http://api.flock.co/v1/chat.sendMessage"
 	
-	widgetdict={ "src": "https://orient-flock.herokuapp.com/frame/" + idn, "width": 400, "height": 400 } 
-	viewdict={"widget":widgetdict}
+	widgetdict={ "inline": '<html><body><iframe src=" https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1 " ></body></html>', "width": 400, "height": 400 } 
+	viewdict={"html":widgetdict}
 	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
 	print (attachmentarrdict)
 	payload={
