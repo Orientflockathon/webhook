@@ -208,6 +208,7 @@ def sendMessage(g_id , u_id ):
 	print g_id
 	print u_id
 	v = Users.objects.get(user_id = u_id)
+	print v
 	idn  = u_id.split(':')[1]
 	print v 
 	print v.user_token
