@@ -244,7 +244,7 @@ def sendMessage3(card_id, u_id ):
 	# print g_id
 	print u_id
 	v = Users.objects.get(user_id = u_id)
-	idn1  = str(u_id).split(':')[1]
+	idn  = str(u_id).split(':')[1]
 	print v 
 	print v.user_token
 	print idn
@@ -252,7 +252,7 @@ def sendMessage3(card_id, u_id ):
 	
 	# widgetdict={ "inline": '<html><body><iframe src="https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1" "width": 800 "height": 800 ></body></html>' } 
 	
-	widgetdict={ "src": 'https://orient-flock.herokuapp.com/card/' + idn1  ,'height': 600} 
+	widgetdict={ "src": 'https://orient-flock.herokuapp.com/card/' + idn  ,'height': 600} 
 
 	viewdict={"widget":widgetdict}
 	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
