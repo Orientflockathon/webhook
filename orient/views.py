@@ -9,7 +9,7 @@ import json
 from django.http import HttpResponse
 from orient.models import data , Users  , Saved 
 from django.shortcuts import redirect
-
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 access_token = 'AQWaKPLlQEPw-T3-sUakDt6XMpLMU1iuDpz9jzKKySirZxoOEmSwnR_CHPePahHU3eSJ7m5qx2V55jYGe99F5fUs4gjR-1P__bzn0v6Y04YC9ZVMtwMbhCzc7GzZ2Gywmy5NNKGXXsfV_BhGiiTncLTFOXJQrCvEZfiiRATfepeHZbfUWX0'
 def check(request):
@@ -347,6 +347,7 @@ def index(request):
 
 	return HttpResponse(responseobj,content_type = "application/json")
 
+@xframe_options_exempt
 
 def card(requests , id):
 	# print id.split(:)[1] 
@@ -365,6 +366,7 @@ def card(requests , id):
 	context_dict['description'] = p.summary
 	return render(requests,'orient/card.html',context_dict)
 
+@xframe_options_exempt
 
 def frame(requests , id):
 	context_dict = {}
