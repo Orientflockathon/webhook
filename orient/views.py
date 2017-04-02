@@ -213,7 +213,7 @@ def sendMessage(g_id , u_id ):
 	print idn
 	url="http://api.flock.co/v1/chat.sendMessage"
 	
-	widgetdict={ "inline": '<html><body><iframe src="https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1&output=embed" ></body></html>', "width": 400, "height": 400 } 
+	widgetdict={ "inline": '<html><body><iframe src="https://orient-flock.herokuapp.com/card/mgmjkx1mjww22dx1&output=embed" ></body></html>', "width": 800, "height": 800 } 
 	viewdict={"html":widgetdict}
 	attachmentarrdict={"title":"attachment title","description":"I-Frame","views":viewdict}
 	print (attachmentarrdict)
