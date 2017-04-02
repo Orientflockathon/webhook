@@ -257,7 +257,7 @@ def sendMessage3( u_id ):
 	print (attachmentarrdict)
 	payload={
 	"to":u_id,
-	"token":v.user_token,
+	"token":'ba0af222-e3b0-4686-b2d7-ea9fa7839cc9',
 	# "sendAs":json.dumps(d) , 
 		"attachments" :json.dumps([attachmentarrdict] )
 	
